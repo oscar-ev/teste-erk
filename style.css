@@ -40,6 +40,7 @@ body {
     top: 0;
 
     width: 250px;
+
     height: 100vh;
 
     background: #111827;
@@ -70,9 +71,7 @@ body {
     gap: 12px;
 
     padding:
-        0
-        10px
-        30px;
+        0 10px 30px;
 
 }
 
@@ -80,6 +79,7 @@ body {
 .logo-icon {
 
     width: 40px;
+
     height: 40px;
 
     border-radius: 10px;
@@ -121,6 +121,15 @@ body {
    MENU
 ===================================================== */
 
+.sidebar-menu {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
 .menu-title {
 
     color: #6b7280;
@@ -130,9 +139,7 @@ body {
     font-weight: bold;
 
     margin:
-        22px
-        12px
-        8px;
+        22px 12px 8px;
 
     letter-spacing: 1px;
 
@@ -141,29 +148,37 @@ body {
 
 .menu-item {
 
+    width: 100%;
+
     display: flex;
 
     align-items: center;
 
     gap: 12px;
 
-    padding: 12px;
+    padding:
+        11px 12px;
 
     margin-bottom: 4px;
 
+    border: none;
+
     border-radius: 8px;
+
+    background: transparent;
 
     color: #d1d5db;
 
-    text-decoration: none;
-
     font-size: 14px;
+
+    text-align: left;
 
     cursor: pointer;
 
     transition:
         background .2s,
-        color .2s;
+        color .2s,
+        transform .1s;
 
 }
 
@@ -177,6 +192,13 @@ body {
 }
 
 
+.menu-item:active {
+
+    transform: scale(.98);
+
+}
+
+
 .menu-item.active {
 
     background: #2563eb;
@@ -186,9 +208,11 @@ body {
 }
 
 
-.menu-item span {
+.menu-icon {
 
     width: 20px;
+
+    min-width: 20px;
 
     text-align: center;
 
@@ -208,8 +232,7 @@ body {
         #374151;
 
     padding:
-        18px
-        8px;
+        18px 8px;
 
     display: flex;
 
@@ -223,6 +246,7 @@ body {
 .user-avatar {
 
     width: 36px;
+
     height: 36px;
 
     border-radius: 50%;
@@ -331,8 +355,7 @@ body {
     border-radius: 8px;
 
     padding:
-        10px
-        14px;
+        10px 14px;
 
     cursor: pointer;
 
@@ -431,6 +454,7 @@ body {
 .metric-icon {
 
     width: 36px;
+
     height: 36px;
 
     border-radius: 8px;
@@ -503,7 +527,7 @@ body {
 
 
 /* =====================================================
-   DASHBOARD GRID
+   DASHBOARD
 ===================================================== */
 
 .dashboard-grid {
@@ -583,8 +607,7 @@ body {
 .profile-list {
 
     padding:
-        10px
-        20px;
+        10px 20px;
 
 }
 
@@ -594,15 +617,12 @@ body {
     display: grid;
 
     grid-template-columns:
-        1fr
-        60px
-        50px;
+        1fr 60px 50px;
 
     align-items: center;
 
     padding:
-        14px
-        0;
+        14px 0;
 
     border-bottom:
         1px solid
@@ -634,6 +654,7 @@ body {
 .status-dot {
 
     width: 9px;
+
     height: 9px;
 
     border-radius: 50%;
@@ -676,8 +697,7 @@ body {
 .indicator-list {
 
     padding:
-        10px
-        20px;
+        10px 20px;
 
 }
 
@@ -689,8 +709,7 @@ body {
     justify-content: space-between;
 
     padding:
-        15px
-        0;
+        15px 0;
 
     border-bottom:
         1px solid
@@ -728,6 +747,8 @@ body {
 
 .table-container {
 
+    width: 100%;
+
     overflow-x: auto;
 
 }
@@ -749,8 +770,7 @@ th {
     text-align: left;
 
     padding:
-        14px
-        20px;
+        14px 20px;
 
     background: #f9fafb;
 
@@ -770,8 +790,7 @@ th {
 td {
 
     padding:
-        16px
-        20px;
+        16px 20px;
 
     border-top:
         1px solid
@@ -798,8 +817,7 @@ td strong {
     display: inline-block;
 
     padding:
-        5px
-        9px;
+        5px 9px;
 
     border-radius: 20px;
 
@@ -859,8 +877,7 @@ td strong {
     border: none;
 
     padding:
-        11px
-        16px;
+        11px 16px;
 
     border-radius: 8px;
 
@@ -887,8 +904,7 @@ td strong {
         #e5e7eb;
 
     padding:
-        8px
-        12px;
+        8px 12px;
 
     border-radius: 7px;
 
@@ -915,7 +931,7 @@ td strong {
 }
 
 
-.active-screen {
+.screen.active-screen {
 
     display: block;
 
@@ -923,7 +939,7 @@ td strong {
 
 
 /* =====================================================
-   CABEÇALHOS DE SEÇÃO
+   CABEÇALHOS
 ===================================================== */
 
 .section-header {
@@ -976,8 +992,7 @@ td strong {
 .filters select {
 
     padding:
-        11px
-        13px;
+        11px 13px;
 
     border:
         1px solid
@@ -1103,8 +1118,7 @@ td strong {
         width: 70px;
 
         padding:
-            15px
-            8px;
+            15px 8px;
 
     }
 
@@ -1114,9 +1128,7 @@ td strong {
         justify-content: center;
 
         padding:
-            0
-            0
-            20px;
+            0 0 20px;
 
     }
 
@@ -1144,7 +1156,7 @@ td strong {
     }
 
 
-    .menu-item span {
+    .menu-icon {
 
         font-size: 16px;
 
