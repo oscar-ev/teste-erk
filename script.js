@@ -6,130 +6,88 @@
 
 
 // =====================================================
-// PÁGINAS DO SISTEMA
+// CONFIGURAÇÃO DAS PÁGINAS
 // =====================================================
 
 const paginas = {
 
     dashboard: {
-
         titulo: "Dashboard",
-
-        descricao:
-            "Visão geral da saúde financeira dos seus alunos."
-
+        descricao: "Visão geral da saúde financeira dos seus alunos."
     },
-
 
     alunos: {
-
         titulo: "Alunos",
-
-        descricao:
-            "Consulte a situação financeira individual."
-
+        descricao: "Consulte a situação financeira individual."
     },
-
 
     financeiro: {
-
         titulo: "Financeiro",
-
-        descricao:
-            "Controle de receitas, recebimentos e inadimplência."
-
+        descricao: "Controle de receitas, recebimentos e inadimplência."
     },
-
 
     rentabilidade: {
-
         titulo: "Rentabilidade",
-
-        descricao:
-            "Analise quanto cada aluno contribui para o resultado."
-
+        descricao: "Analise quanto cada aluno contribui para o resultado."
     },
-
 
     "bons-pagadores": {
-
         titulo: "Bons pagadores",
-
-        descricao:
-            "Alunos com excelente comportamento financeiro."
-
+        descricao: "Alunos com excelente comportamento financeiro."
     },
 
-
     inadimplentes: {
-
         titulo: "Inadimplentes",
-
-        descricao:
-            "Alunos que necessitam de atenção financeira."
-
+        descricao: "Alunos que necessitam de atenção financeira."
     }
 
 };
 
 
-
 // =====================================================
-// FUNÇÃO PARA TROCAR DE TELA
+// TROCAR DE TELA
 // =====================================================
 
 function mostrarTela(nomeTela) {
 
+    // -----------------------------------------------
+    // Localiza todas as telas
+    // -----------------------------------------------
 
-    console.log(
-        "Abrindo tela:",
-        nomeTela
-    );
+    const telas = document.querySelectorAll(".screen");
 
 
     // -----------------------------------------------
-    // 1. Localizar todas as telas
+    // Esconde todas as telas
     // -----------------------------------------------
 
-    const telas =
-        document.querySelectorAll(
-            ".screen"
-        );
+    telas.forEach(function(tela) {
 
+        tela.classList.remove("active-screen");
 
-    // -----------------------------------------------
-    // 2. Esconder todas as telas
-    // -----------------------------------------------
-
-    telas.forEach(
-        function(tela) {
-
-            tela.classList.remove(
-                "active-screen"
-            );
-
-        }
-    );
+    });
 
 
     // -----------------------------------------------
-    // 3. Localizar a tela escolhida
+    // Localiza a tela escolhida
     // -----------------------------------------------
 
     const telaSelecionada =
-        document.getElementById(
-            nomeTela
-        );
+        document.getElementById(nomeTela);
 
 
     // -----------------------------------------------
-    // 4. Verificar se existe
+    // Mostra a tela
     // -----------------------------------------------
 
-    if (!telaSelecionada) {
+    if (telaSelecionada) {
+
+        telaSelecionada.classList.add("active-screen");
+
+    } else {
 
         console.error(
-            "ERRO: Tela não encontrada:",
+            "Tela não encontrada:",
             nomeTela
         );
 
@@ -139,28 +97,14 @@ function mostrarTela(nomeTela) {
 
 
     // -----------------------------------------------
-    // 5. Mostrar a tela
-    // -----------------------------------------------
-
-    telaSelecionada.classList.add(
-        "active-screen"
-    );
-
-
-    // -----------------------------------------------
-    // 6. Atualizar título
+    // Atualiza título
     // -----------------------------------------------
 
     const titulo =
-        document.getElementById(
-            "page-title"
-        );
+        document.getElementById("page-title");
 
 
-    if (
-        titulo &&
-        paginas[nomeTela]
-    ) {
+    if (titulo && paginas[nomeTela]) {
 
         titulo.textContent =
             paginas[nomeTela].titulo;
@@ -169,19 +113,14 @@ function mostrarTela(nomeTela) {
 
 
     // -----------------------------------------------
-    // 7. Atualizar descrição
+    // Atualiza descrição
     // -----------------------------------------------
 
     const descricao =
-        document.getElementById(
-            "page-description"
-        );
+        document.getElementById("page-description");
 
 
-    if (
-        descricao &&
-        paginas[nomeTela]
-    ) {
+    if (descricao && paginas[nomeTela]) {
 
         descricao.textContent =
             paginas[nomeTela].descricao;
@@ -190,28 +129,22 @@ function mostrarTela(nomeTela) {
 
 
     // -----------------------------------------------
-    // 8. Remover active dos menus
+    // Remove active de todos os menus
     // -----------------------------------------------
 
     const menus =
-        document.querySelectorAll(
-            ".menu-item"
-        );
+        document.querySelectorAll(".menu-item");
 
 
-    menus.forEach(
-        function(menu) {
+    menus.forEach(function(menu) {
 
-            menu.classList.remove(
-                "active"
-            );
+        menu.classList.remove("active");
 
-        }
-    );
+    });
 
 
     // -----------------------------------------------
-    // 9. Ativar menu selecionado
+    // Ativa o menu selecionado
     // -----------------------------------------------
 
     const menuSelecionado =
@@ -222,15 +155,13 @@ function mostrarTela(nomeTela) {
 
     if (menuSelecionado) {
 
-        menuSelecionado.classList.add(
-            "active"
-        );
+        menuSelecionado.classList.add("active");
 
     }
 
 
     // -----------------------------------------------
-    // 10. Voltar ao topo
+    // Volta para o topo
     // -----------------------------------------------
 
     window.scrollTo({
@@ -244,9 +175,8 @@ function mostrarTela(nomeTela) {
 }
 
 
-
 // =====================================================
-// INICIALIZAÇÃO DO SISTEMA
+// INICIALIZAÇÃO
 // =====================================================
 
 document.addEventListener(
@@ -254,114 +184,58 @@ document.addEventListener(
     function() {
 
 
-        console.log(
-            "Gestão+ iniciado."
-        );
-
-
         // -------------------------------------------
-        // Localiza os menus
+        // Localiza todos os itens do menu
         // -------------------------------------------
 
         const menus =
-            document.querySelectorAll(
-                ".menu-item"
-            );
-
-
-        console.log(
-            "Menus encontrados:",
-            menus.length
-        );
+            document.querySelectorAll(".menu-item");
 
 
         // -------------------------------------------
-        // Adiciona evento de clique
+        // Adiciona o clique em cada menu
         // -------------------------------------------
 
-        menus.forEach(
-            function(menu) {
+        menus.forEach(function(menu) {
 
 
-                menu.addEventListener(
-                    "click",
-                    function() {
+            menu.addEventListener(
+                "click",
+                function(event) {
 
 
-                        const nomeTela =
-                            this.dataset.tela;
+                    // Impede o "#" de alterar a página
+                    event.preventDefault();
 
 
-                        console.log(
-                            "Clique:",
-                            nomeTela
+                    // Descobre qual tela deve abrir
+                    const nomeTela =
+                        menu.getAttribute(
+                            "data-tela"
                         );
 
 
-                        if (nomeTela) {
+                    // Abre a tela
+                    if (nomeTela) {
 
-                            mostrarTela(
-                                nomeTela
-                            );
-
-                        }
+                        mostrarTela(nomeTela);
 
                     }
-                );
 
-            }
-        );
-
-
-        // -------------------------------------------
-        // Botões "Ver todos"
-        // -------------------------------------------
-
-        const botoesNavegacao =
-            document.querySelectorAll(
-                "[data-ir-para]"
+                }
             );
 
-
-        botoesNavegacao.forEach(
-            function(botao) {
-
-
-                botao.addEventListener(
-                    "click",
-                    function() {
-
-
-                        const destino =
-                            this.dataset.irPara;
-
-
-                        if (destino) {
-
-                            mostrarTela(
-                                destino
-                            );
-
-                        }
-
-                    }
-                );
-
-            }
-        );
+        });
 
 
         // -------------------------------------------
-        // Abrir Dashboard
+        // Abre Dashboard inicialmente
         // -------------------------------------------
 
-        mostrarTela(
-            "dashboard"
-        );
+        mostrarTela("dashboard");
 
     }
 );
-
 
 
 // =====================================================
@@ -372,21 +246,10 @@ function filtrarAlunos() {
 
 
     const campo =
-        document.getElementById(
-            "searchAluno"
-        );
+        document.getElementById("searchAluno");
 
 
-    const tabela =
-        document.getElementById(
-            "tabelaAlunos"
-        );
-
-
-    if (
-        !campo ||
-        !tabela
-    ) {
+    if (!campo) {
 
         return;
 
@@ -399,73 +262,8 @@ function filtrarAlunos() {
             .trim();
 
 
-    const linhas =
-        tabela.querySelectorAll(
-            "tbody tr"
-        );
-
-
-    linhas.forEach(
-        function(linha) {
-
-
-            const texto =
-                linha.textContent
-                    .toLowerCase();
-
-
-            if (
-                texto.includes(
-                    termo
-                )
-            ) {
-
-                linha.style.display =
-                    "";
-
-            } else {
-
-                linha.style.display =
-                    "none";
-
-            }
-
-        }
-    );
-
-}
-
-
-
-// =====================================================
-// FILTROS DOS ALUNOS
-// =====================================================
-
-function aplicarFiltros() {
-
-
-    const campoBusca =
-        document.getElementById(
-            "searchAluno"
-        );
-
-
-    const filtroStatus =
-        document.getElementById(
-            "filtroStatus"
-        );
-
-
-    const filtroPlano =
-        document.getElementById(
-            "filtroPlano"
-        );
-
-
     const tabela =
-        document.getElementById(
-            "tabelaAlunos"
-        );
+        document.getElementById("tabelaAlunos");
 
 
     if (!tabela) {
@@ -475,90 +273,37 @@ function aplicarFiltros() {
     }
 
 
-    const termo =
-        campoBusca
-            ? campoBusca.value
-                .toLowerCase()
-                .trim()
-            : "";
-
-
-    const status =
-        filtroStatus
-            ? filtroStatus.value
-            : "";
-
-
-    const plano =
-        filtroPlano
-            ? filtroPlano.value
-            : "";
-
-
     const linhas =
         tabela.querySelectorAll(
             "tbody tr"
         );
 
 
-    linhas.forEach(
-        function(linha) {
+    linhas.forEach(function(linha) {
 
 
-            const texto =
-                linha.textContent
-                    .toLowerCase();
+        const texto =
+            linha.textContent
+                .toLowerCase();
 
 
-            const statusAluno =
-                linha.dataset.status || "";
+        if (texto.includes(termo)) {
 
+            linha.style.display = "";
 
-            const planoAluno =
-                linha.dataset.plano || "";
+        } else {
 
-
-            const correspondeBusca =
-                texto.includes(
-                    termo
-                );
-
-
-            const correspondeStatus =
-                status === "" ||
-                statusAluno === status;
-
-
-            const correspondePlano =
-                plano === "" ||
-                planoAluno === plano;
-
-
-            if (
-                correspondeBusca &&
-                correspondeStatus &&
-                correspondePlano
-            ) {
-
-                linha.style.display =
-                    "";
-
-            } else {
-
-                linha.style.display =
-                    "none";
-
-            }
+            linha.style.display = "none";
 
         }
-    );
+
+    });
 
 }
 
 
-
 // =====================================================
-// EVENTOS DOS FILTROS
+// FILTRO POR STATUS
 // =====================================================
 
 document.addEventListener(
@@ -566,52 +311,81 @@ document.addEventListener(
     function() {
 
 
-        const campoBusca =
-            document.getElementById(
-                "searchAluno"
-            );
-
-
-        const filtroStatus =
+        const filtro =
             document.getElementById(
                 "filtroStatus"
             );
 
 
-        const filtroPlano =
-            document.getElementById(
-                "filtroPlano"
-            );
+        if (!filtro) {
 
-
-        if (campoBusca) {
-
-            campoBusca.addEventListener(
-                "input",
-                aplicarFiltros
-            );
+            return;
 
         }
 
 
-        if (filtroStatus) {
-
-            filtroStatus.addEventListener(
-                "change",
-                aplicarFiltros
-            );
-
-        }
+        filtro.addEventListener(
+            "change",
+            function() {
 
 
-        if (filtroPlano) {
+                const status =
+                    this.value;
 
-            filtroPlano.addEventListener(
-                "change",
-                aplicarFiltros
-            );
 
-        }
+                const tabela =
+                    document.getElementById(
+                        "tabelaAlunos"
+                    );
+
+
+                if (!tabela) {
+
+                    return;
+
+                }
+
+
+                const linhas =
+                    tabela.querySelectorAll(
+                        "tbody tr"
+                    );
+
+
+                linhas.forEach(
+                    function(linha) {
+
+
+                        if (status === "") {
+
+                            linha.style.display = "";
+
+                            return;
+
+                        }
+
+
+                        const texto =
+                            linha.textContent;
+
+
+                        if (
+                            texto.includes(status)
+                        ) {
+
+                            linha.style.display = "";
+
+                        } else {
+
+                            linha.style.display = "none";
+
+                        }
+
+                    }
+                );
+
+            }
+        );
 
     }
 );
