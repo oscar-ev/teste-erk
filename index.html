@@ -1,55 +1,72 @@
-```html
-<nav>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gestão+ Financeiro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Barra lateral fixa: identidade, navegação e usuário -->
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">G+</div>
+            <div class="logo-text"><strong>Gestão+</strong><span>Financeiro</span></div>
+        </div>
 
-    <!-- VISÃO GERAL -->
+        <!-- Cada data-tela aponta para o id da seção que o JavaScript exibe -->
+        <nav class="sidebar-menu" aria-label="Menu principal">
+            <p class="menu-title">VISÃO GERAL</p>
+            <a href="#dashboard" class="menu-item active" data-tela="dashboard"><span class="menu-icon">📊</span><span class="menu-label">Dashboard</span></a>
 
-    <p class="menu-title">
-        VISÃO GERAL
-    </p>
+            <p class="menu-title">GESTÃO</p>
+            <a href="#alunos" class="menu-item" data-tela="alunos"><span class="menu-icon">👥</span><span class="menu-label">Alunos</span></a>
+            <a href="#financeiro" class="menu-item" data-tela="financeiro"><span class="menu-icon">💰</span><span class="menu-label">Financeiro</span></a>
+            <a href="#rentabilidade" class="menu-item" data-tela="rentabilidade"><span class="menu-icon">📈</span><span class="menu-label">Rentabilidade</span></a>
 
-    <a href="#" class="menu-item active" data-tela="dashboard">
-        <span>📊</span>
-        Dashboard
-    </a>
+            <p class="menu-title">ANÁLISES</p>
+            <a href="#bons-pagadores" class="menu-item" data-tela="bons-pagadores"><span class="menu-icon">⭐</span><span class="menu-label">Bons pagadores</span></a>
+            <a href="#inadimplentes" class="menu-item" data-tela="inadimplentes"><span class="menu-icon">⚠️</span><span class="menu-label">Inadimplentes</span></a>
+        </nav>
 
+        <div class="sidebar-footer"><div class="user-avatar">OS</div><div class="user-info"><strong>Oscar</strong><span>Administrador</span></div></div>
+    </aside>
 
-    <!-- GESTÃO -->
+    <!-- Área de conteúdo que muda de acordo com o item de menu selecionado -->
+    <main class="main-content">
+        <header class="topbar">
+            <div><h1 id="page-title">Dashboard</h1><p id="page-description">Visão geral da saúde financeira dos seus alunos.</p></div>
+            <div class="topbar-actions"><button class="notification" type="button" aria-label="Notificações">🔔</button><button class="period-button" type="button">Setembro 2026 ▾</button></div>
+        </header>
 
-    <p class="menu-title">
-        GESTÃO
-    </p>
+        <!-- Dashboard: é a tela inicial e por isso começa ativa -->
+        <section id="dashboard" class="screen active-screen">
+            <div class="metrics-grid">
+                <article class="metric-card"><div class="metric-header"><span>Receita mensal</span><span class="metric-icon blue">R$</span></div><strong>R$ 18.450</strong><span class="positive">↑ 12% vs. mês anterior</span></article>
+                <article class="metric-card"><div class="metric-header"><span>Recebido</span><span class="metric-icon green">✓</span></div><strong>R$ 15.320</strong><span class="positive">83% da receita prevista</span></article>
+                <article class="metric-card"><div class="metric-header"><span>Em aberto</span><span class="metric-icon red">!</span></div><strong>R$ 3.130</strong><span class="negative">17% aguardando pagamento</span></article>
+                <article class="metric-card"><div class="metric-header"><span>Alunos ativos</span><span class="metric-icon purple">👥</span></div><strong>124</strong><span class="positive">↑ 8 novos alunos</span></article>
+            </div>
+            <div class="dashboard-grid">
+                <article class="panel"><div class="panel-header"><div><h2>Perfil dos alunos</h2><p>Distribuição por comportamento financeiro</p></div></div><div class="profile-list"><div class="profile-row"><span class="profile-name"><i class="status-dot excellent"></i>Excelente</span><strong>72</strong><span>58%</span></div><div class="profile-row"><span class="profile-name"><i class="status-dot good"></i>Bom</span><strong>31</strong><span>25%</span></div><div class="profile-row"><span class="profile-name"><i class="status-dot attention"></i>Atenção</span><strong>14</strong><span>11%</span></div><div class="profile-row"><span class="profile-name"><i class="status-dot critical"></i>Crítico</span><strong>7</strong><span>6%</span></div></div></article>
+                <article class="panel"><div class="panel-header"><div><h2>Indicadores</h2><p>Acompanhamento do mês</p></div></div><div class="indicator-list"><div class="indicator"><span>Ticket médio</span><strong>R$ 148,79</strong></div><div class="indicator"><span>Taxa de inadimplência</span><strong class="negative">6,4%</strong></div><div class="indicator"><span>Pagamentos em dia</span><strong class="positive">93,6%</strong></div><div class="indicator"><span>Novos recebimentos</span><strong>18</strong></div></div></article>
+            </div>
+        </section>
 
-    <a href="#" class="menu-item" data-tela="alunos">
-        <span>👥</span>
-        Alunos
-    </a>
+        <!-- Gestão de alunos: os IDs abaixo são usados pelo filtro em script.js -->
+        <section id="alunos" class="screen">
+            <div class="section-header"><div><h2>Alunos</h2><p>Consulte e filtre a situação financeira de cada aluno.</p></div><button class="primary-button" type="button">+ Adicionar aluno</button></div>
+            <div class="filters"><input id="searchAluno" type="search" placeholder="Buscar por nome ou turma"><select id="filtroStatus"><option value="">Todos os status</option><option value="Excelente">Excelente</option><option value="Bom">Bom</option><option value="Atenção">Atenção</option><option value="Crítico">Crítico</option></select></div>
+            <article class="panel table-container"><table id="tabelaAlunos"><thead><tr><th>Aluno</th><th>Turma</th><th>Mensalidade</th><th>Status</th><th>Ação</th></tr></thead><tbody><tr><td><strong>Ana Souza</strong></td><td>Yoga — manhã</td><td>R$ 150,00</td><td><span class="badge excellent-badge">Excelente</span></td><td><a class="secondary-button" href="#">Ver perfil</a></td></tr><tr><td><strong>Bruno Lima</strong></td><td>Funcional — noite</td><td>R$ 180,00</td><td><span class="badge good-badge">Bom</span></td><td><a class="secondary-button" href="#">Ver perfil</a></td></tr><tr><td><strong>Carla Mendes</strong></td><td>Pilates — tarde</td><td>R$ 220,00</td><td><span class="badge attention-badge">Atenção</span></td><td><a class="secondary-button" href="#">Ver perfil</a></td></tr><tr><td><strong>Diego Alves</strong></td><td>Musculação — manhã</td><td>R$ 160,00</td><td><span class="badge critical-badge">Crítico</span></td><td><a class="secondary-button" href="#">Ver perfil</a></td></tr></tbody></table></article>
+        </section>
 
-    <a href="#" class="menu-item" data-tela="financeiro">
-        <span>💰</span>
-        Financeiro
-    </a>
-
-    <a href="#" class="menu-item" data-tela="rentabilidade">
-        <span>📈</span>
-        Rentabilidade
-    </a>
-
-
-    <!-- ANÁLISES -->
-
-    <p class="menu-title">
-        ANÁLISES
-    </p>
-
-    <a href="#" class="menu-item" data-tela="bons-pagadores">
-        <span>⭐</span>
-        Bons pagadores
-    </a>
-
-    <a href="#" class="menu-item" data-tela="inadimplentes">
-        <span>⚠️</span>
-        Inadimplentes
-    </a>
-
-</nav>
-```
+        <!-- Telas adicionais: ocultas até serem selecionadas no menu -->
+        <section id="financeiro" class="screen"><div class="section-header"><div><h2>Financeiro</h2><p>Resumo dos recebimentos do período selecionado.</p></div></div><article class="panel"><div class="financial-summary"><div><span>Receita prevista</span><strong>R$ 18.450,00</strong></div><div><span>Receita recebida</span><strong class="positive-value">R$ 15.320,00</strong></div><div><span>Valores em aberto</span><strong class="negative-value">R$ 3.130,00</strong></div></div></article></section>
+        <section id="rentabilidade" class="screen"><div class="section-header"><div><h2>Rentabilidade</h2><p>Contribuição dos alunos para o resultado.</p></div></div><article class="panel"><div class="indicator-list"><div class="indicator"><span>Receita média por aluno</span><strong>R$ 148,79</strong></div><div class="indicator"><span>Margem estimada</span><strong class="positive">42%</strong></div></div></article></section>
+        <section id="bons-pagadores" class="screen"><div class="section-header"><div><h2>Bons pagadores</h2><p>Alunos com pagamentos sempre em dia.</p></div></div><article class="panel"><div class="indicator-list"><div class="indicator"><span>Ana Souza</span><strong class="positive">100% em dia</strong></div><div class="indicator"><span>Bruno Lima</span><strong class="positive">100% em dia</strong></div></div></article></section>
+        <section id="inadimplentes" class="screen"><div class="section-header"><div><h2>Inadimplentes</h2><p>Alunos que necessitam de acompanhamento.</p></div></div><article class="panel"><div class="indicator-list"><div class="indicator"><span>Diego Alves</span><strong class="negative">R$ 160,00 em aberto</strong></div><div class="indicator"><span>Carla Mendes</span><strong class="negative">R$ 220,00 em aberto</strong></div></div></article></section>
+    </main>
+    <!-- Comportamentos de navegação e filtros -->
+    <script src="script.js"></script>
+</body>
+</html>
