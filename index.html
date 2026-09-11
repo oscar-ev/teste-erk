@@ -6,11 +6,17 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Gestão+ Financeiro</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
@@ -48,9 +54,12 @@
         </div>
 
 
-        <!-- MENU -->
 
-        <nav>
+        <!-- =================================================
+             MENU
+        ================================================== -->
+
+        <nav class="sidebar-menu">
 
 
             <!-- VISÃO GERAL -->
@@ -60,19 +69,21 @@
             </p>
 
 
-            <a
-                href="#"
+            <button
+                type="button"
                 class="menu-item active"
-                onclick="mostrarTela('dashboard'); return false;"
+                data-tela="dashboard"
             >
 
-                <span>
+                <span class="menu-icon">
                     📊
                 </span>
 
-                Dashboard
+                <span>
+                    Dashboard
+                </span>
 
-            </a>
+            </button>
 
 
 
@@ -83,49 +94,55 @@
             </p>
 
 
-            <a
-                href="#"
+            <button
+                type="button"
                 class="menu-item"
-                onclick="mostrarTela('alunos'); return false;"
+                data-tela="alunos"
             >
 
-                <span>
+                <span class="menu-icon">
                     👥
                 </span>
 
-                Alunos
+                <span>
+                    Alunos
+                </span>
 
-            </a>
+            </button>
 
 
-            <a
-                href="#"
+            <button
+                type="button"
                 class="menu-item"
-                onclick="mostrarTela('financeiro'); return false;"
+                data-tela="financeiro"
             >
 
-                <span>
+                <span class="menu-icon">
                     💰
                 </span>
 
-                Financeiro
+                <span>
+                    Financeiro
+                </span>
 
-            </a>
+            </button>
 
 
-            <a
-                href="#"
+            <button
+                type="button"
                 class="menu-item"
-                onclick="mostrarTela('rentabilidade'); return false;"
+                data-tela="rentabilidade"
             >
 
-                <span>
+                <span class="menu-icon">
                     📈
                 </span>
 
-                Rentabilidade
+                <span>
+                    Rentabilidade
+                </span>
 
-            </a>
+            </button>
 
 
 
@@ -136,40 +153,47 @@
             </p>
 
 
-            <a
-                href="#"
+            <button
+                type="button"
                 class="menu-item"
-                onclick="mostrarTela('bons-pagadores'); return false;"
+                data-tela="bons-pagadores"
             >
 
-                <span>
+                <span class="menu-icon">
                     ⭐
                 </span>
 
-                Bons pagadores
+                <span>
+                    Bons pagadores
+                </span>
 
-            </a>
+            </button>
 
 
-            <a
-                href="#"
+            <button
+                type="button"
                 class="menu-item"
-                onclick="mostrarTela('inadimplentes'); return false;"
+                data-tela="inadimplentes"
             >
 
-                <span>
+                <span class="menu-icon">
                     ⚠️
                 </span>
 
-                Inadimplentes
+                <span>
+                    Inadimplentes
+                </span>
 
-            </a>
+            </button>
 
 
         </nav>
 
 
-        <!-- USUÁRIO -->
+
+        <!-- =================================================
+             USUÁRIO
+        ================================================== -->
 
         <div class="sidebar-footer">
 
@@ -229,12 +253,19 @@
             <div class="topbar-actions">
 
 
-                <button class="notification">
+                <button
+                    type="button"
+                    class="notification"
+                    title="Notificações"
+                >
                     🔔
                 </button>
 
 
-                <button class="period-button">
+                <button
+                    type="button"
+                    class="period-button"
+                >
                     📅 Setembro 2026
                 </button>
 
@@ -246,9 +277,9 @@
 
 
 
-        <!-- =================================================
+        <!-- =====================================================
              DASHBOARD
-        ================================================== -->
+        ====================================================== -->
 
         <section
             id="dashboard"
@@ -256,7 +287,7 @@
         >
 
 
-            <!-- CARDS -->
+            <!-- MÉTRICAS -->
 
             <div class="metrics-grid">
 
@@ -275,11 +306,9 @@
 
                     </div>
 
-
                     <strong>
                         R$ 924.500
                     </strong>
-
 
                     <small class="positive">
                         ↑ 8,4% este mês
@@ -303,11 +332,9 @@
 
                     </div>
 
-
                     <strong>
                         R$ 891.200
                     </strong>
-
 
                     <small class="positive">
                         ↑ 6,8% este mês
@@ -331,11 +358,9 @@
 
                     </div>
 
-
                     <strong>
                         R$ 33.300
                     </strong>
-
 
                     <small class="negative">
                         3,6% da receita
@@ -359,11 +384,9 @@
 
                     </div>
 
-
                     <strong>
                         842
                     </strong>
-
 
                     <small class="positive">
                         ↑ 21 novos alunos
@@ -381,10 +404,9 @@
             <div class="dashboard-grid">
 
 
-                <!-- PERFIL -->
+                <!-- PERFIL FINANCEIRO -->
 
                 <div class="panel">
-
 
                     <div class="panel-header">
 
@@ -410,7 +432,9 @@
 
                             <div class="profile-name">
 
-                                <span class="status-dot excellent"></span>
+                                <span
+                                    class="status-dot excellent"
+                                ></span>
 
                                 Excelentes
 
@@ -432,7 +456,9 @@
 
                             <div class="profile-name">
 
-                                <span class="status-dot good"></span>
+                                <span
+                                    class="status-dot good"
+                                ></span>
 
                                 Bons pagadores
 
@@ -454,7 +480,9 @@
 
                             <div class="profile-name">
 
-                                <span class="status-dot attention"></span>
+                                <span
+                                    class="status-dot attention"
+                                ></span>
 
                                 Atenção
 
@@ -476,7 +504,9 @@
 
                             <div class="profile-name">
 
-                                <span class="status-dot critical"></span>
+                                <span
+                                    class="status-dot critical"
+                                ></span>
 
                                 Críticos
 
@@ -495,7 +525,6 @@
 
                     </div>
 
-
                 </div>
 
 
@@ -503,7 +532,6 @@
                 <!-- INDICADORES -->
 
                 <div class="panel">
-
 
                     <div class="panel-header">
 
@@ -538,7 +566,6 @@
                         </div>
 
 
-
                         <div class="indicator">
 
                             <span>
@@ -552,7 +579,6 @@
                         </div>
 
 
-
                         <div class="indicator">
 
                             <span>
@@ -564,7 +590,6 @@
                             </strong>
 
                         </div>
-
 
 
                         <div class="indicator">
@@ -582,7 +607,6 @@
 
                     </div>
 
-
                 </div>
 
 
@@ -596,7 +620,6 @@
 
 
                 <div class="panel-header">
-
 
                     <div>
 
@@ -612,22 +635,20 @@
 
 
                     <button
+                        type="button"
                         class="secondary-button"
-                        onclick="mostrarTela('alunos')"
+                        data-ir-para="alunos"
                     >
                         Ver todos
                     </button>
 
-
                 </div>
-
 
 
                 <div class="table-container">
 
 
                     <table>
-
 
                         <thead>
 
@@ -666,14 +687,15 @@
                         </thead>
 
 
-
                         <tbody>
 
 
                             <tr>
 
                                 <td>
-                                    <strong>Ana Carolina</strong>
+                                    <strong>
+                                        Ana Carolina
+                                    </strong>
                                 </td>
 
                                 <td>
@@ -698,7 +720,9 @@
 
                                 <td>
 
-                                    <span class="badge excellent-badge">
+                                    <span
+                                        class="badge excellent-badge"
+                                    >
                                         Excelente
                                     </span>
 
@@ -711,7 +735,9 @@
                             <tr>
 
                                 <td>
-                                    <strong>Lucas Mendes</strong>
+                                    <strong>
+                                        Lucas Mendes
+                                    </strong>
                                 </td>
 
                                 <td>
@@ -736,7 +762,9 @@
 
                                 <td>
 
-                                    <span class="badge good-badge">
+                                    <span
+                                        class="badge good-badge"
+                                    >
                                         Bom
                                     </span>
 
@@ -749,7 +777,9 @@
                             <tr>
 
                                 <td>
-                                    <strong>Mariana Souza</strong>
+                                    <strong>
+                                        Mariana Souza
+                                    </strong>
                                 </td>
 
                                 <td>
@@ -774,7 +804,9 @@
 
                                 <td>
 
-                                    <span class="badge attention-badge">
+                                    <span
+                                        class="badge attention-badge"
+                                    >
                                         Atenção
                                     </span>
 
@@ -787,7 +819,9 @@
                             <tr>
 
                                 <td>
-                                    <strong>Pedro Henrique</strong>
+                                    <strong>
+                                        Pedro Henrique
+                                    </strong>
                                 </td>
 
                                 <td>
@@ -812,7 +846,9 @@
 
                                 <td>
 
-                                    <span class="badge critical-badge">
+                                    <span
+                                        class="badge critical-badge"
+                                    >
                                         Crítico
                                     </span>
 
@@ -823,12 +859,9 @@
 
                         </tbody>
 
-
                     </table>
 
-
                 </div>
-
 
             </div>
 
@@ -837,9 +870,9 @@
 
 
 
-        <!-- =================================================
+        <!-- =====================================================
              ALUNOS
-        ================================================== -->
+        ====================================================== -->
 
         <section
             id="alunos"
@@ -863,7 +896,10 @@
                 </div>
 
 
-                <button class="primary-button">
+                <button
+                    type="button"
+                    class="primary-button"
+                >
                     + Novo aluno
                 </button>
 
@@ -879,7 +915,6 @@
                     type="text"
                     id="searchAluno"
                     placeholder="🔍 Buscar aluno..."
-                    onkeyup="filtrarAlunos()"
                 >
 
 
@@ -908,17 +943,17 @@
                 </select>
 
 
-                <select>
+                <select id="filtroPlano">
 
-                    <option>
+                    <option value="">
                         Todos os planos
                     </option>
 
-                    <option>
+                    <option value="Integral">
                         Integral
                     </option>
 
-                    <option>
+                    <option value="Parcial">
                         Parcial
                     </option>
 
@@ -936,7 +971,6 @@
 
 
                     <table id="tabelaAlunos">
-
 
                         <thead>
 
@@ -975,14 +1009,18 @@
                         </thead>
 
 
-
                         <tbody>
 
 
-                            <tr>
+                            <tr
+                                data-status="Excelente"
+                                data-plano="Integral"
+                            >
 
                                 <td>
-                                    <strong>Ana Carolina</strong>
+                                    <strong>
+                                        Ana Carolina
+                                    </strong>
                                 </td>
 
                                 <td>
@@ -1007,7 +1045,9 @@
 
                                 <td>
 
-                                    <span class="badge excellent-badge">
+                                    <span
+                                        class="badge excellent-badge"
+                                    >
                                         Excelente
                                     </span>
 
@@ -1017,10 +1057,15 @@
 
 
 
-                            <tr>
+                            <tr
+                                data-status="Excelente"
+                                data-plano="Integral"
+                            >
 
                                 <td>
-                                    <strong>Lucas Mendes</strong>
+                                    <strong>
+                                        Lucas Mendes
+                                    </strong>
                                 </td>
 
                                 <td>
@@ -1045,7 +1090,9 @@
 
                                 <td>
 
-                                    <span class="badge excellent-badge">
+                                    <span
+                                        class="badge excellent-badge"
+                                    >
                                         Excelente
                                     </span>
 
@@ -1055,10 +1102,15 @@
 
 
 
-                            <tr>
+                            <tr
+                                data-status="Atenção"
+                                data-plano="Parcial"
+                            >
 
                                 <td>
-                                    <strong>Mariana Souza</strong>
+                                    <strong>
+                                        Mariana Souza
+                                    </strong>
                                 </td>
 
                                 <td>
@@ -1083,7 +1135,9 @@
 
                                 <td>
 
-                                    <span class="badge attention-badge">
+                                    <span
+                                        class="badge attention-badge"
+                                    >
                                         Atenção
                                     </span>
 
@@ -1093,10 +1147,15 @@
 
 
 
-                            <tr>
+                            <tr
+                                data-status="Crítico"
+                                data-plano="Integral"
+                            >
 
                                 <td>
-                                    <strong>Pedro Henrique</strong>
+                                    <strong>
+                                        Pedro Henrique
+                                    </strong>
                                 </td>
 
                                 <td>
@@ -1121,7 +1180,9 @@
 
                                 <td>
 
-                                    <span class="badge critical-badge">
+                                    <span
+                                        class="badge critical-badge"
+                                    >
                                         Crítico
                                     </span>
 
@@ -1132,12 +1193,9 @@
 
                         </tbody>
 
-
                     </table>
 
-
                 </div>
-
 
             </div>
 
@@ -1146,9 +1204,9 @@
 
 
 
-        <!-- =================================================
+        <!-- =====================================================
              FINANCEIRO
-        ================================================== -->
+        ====================================================== -->
 
         <section
             id="financeiro"
@@ -1157,7 +1215,6 @@
 
 
             <div class="section-header">
-
 
                 <div>
 
@@ -1170,7 +1227,6 @@
                     </p>
 
                 </div>
-
 
             </div>
 
@@ -1192,7 +1248,6 @@
                 </div>
 
 
-
                 <div class="metric-card">
 
                     <span>
@@ -1206,7 +1261,6 @@
                 </div>
 
 
-
                 <div class="metric-card">
 
                     <span>
@@ -1218,7 +1272,6 @@
                     </strong>
 
                 </div>
-
 
 
                 <div class="metric-card">
@@ -1239,7 +1292,6 @@
 
 
             <div class="panel">
-
 
                 <div class="panel-header">
 
@@ -1302,7 +1354,6 @@
 
                 </div>
 
-
             </div>
 
 
@@ -1310,9 +1361,9 @@
 
 
 
-        <!-- =================================================
+        <!-- =====================================================
              RENTABILIDADE
-        ================================================== -->
+        ====================================================== -->
 
         <section
             id="rentabilidade"
@@ -1321,7 +1372,6 @@
 
 
             <div class="section-header">
-
 
                 <div>
 
@@ -1334,7 +1384,6 @@
                     </p>
 
                 </div>
-
 
             </div>
 
@@ -1401,7 +1450,6 @@
 
             <div class="panel">
 
-
                 <div class="panel-header">
 
                     <div>
@@ -1419,12 +1467,9 @@
                 </div>
 
 
-
                 <div class="table-container">
 
-
                     <table>
-
 
                         <thead>
 
@@ -1455,14 +1500,15 @@
                         </thead>
 
 
-
                         <tbody>
 
 
                             <tr>
 
                                 <td>
-                                    <strong>Ana Carolina</strong>
+                                    <strong>
+                                        Ana Carolina
+                                    </strong>
                                 </td>
 
                                 <td>
@@ -1488,7 +1534,9 @@
                             <tr>
 
                                 <td>
-                                    <strong>Lucas Mendes</strong>
+                                    <strong>
+                                        Lucas Mendes
+                                    </strong>
                                 </td>
 
                                 <td>
@@ -1514,7 +1562,9 @@
                             <tr>
 
                                 <td>
-                                    <strong>Mariana Souza</strong>
+                                    <strong>
+                                        Mariana Souza
+                                    </strong>
                                 </td>
 
                                 <td>
@@ -1540,7 +1590,9 @@
                             <tr>
 
                                 <td>
-                                    <strong>Pedro Henrique</strong>
+                                    <strong>
+                                        Pedro Henrique
+                                    </strong>
                                 </td>
 
                                 <td>
@@ -1564,12 +1616,9 @@
 
                         </tbody>
 
-
                     </table>
 
-
                 </div>
-
 
             </div>
 
@@ -1578,9 +1627,9 @@
 
 
 
-        <!-- =================================================
+        <!-- =====================================================
              BONS PAGADORES
-        ================================================== -->
+        ====================================================== -->
 
         <section
             id="bons-pagadores"
@@ -1589,7 +1638,6 @@
 
 
             <div class="section-header">
-
 
                 <div>
 
@@ -1602,7 +1650,6 @@
                     </p>
 
                 </div>
-
 
             </div>
 
@@ -1628,7 +1675,6 @@
                 </div>
 
 
-
                 <div class="metric-card">
 
                     <span>
@@ -1646,7 +1692,6 @@
                 </div>
 
 
-
                 <div class="metric-card">
 
                     <span>
@@ -1662,7 +1707,6 @@
                     </small>
 
                 </div>
-
 
 
                 <div class="metric-card">
@@ -1688,7 +1732,6 @@
 
             <div class="panel">
 
-
                 <div class="panel-header">
 
                     <div>
@@ -1706,12 +1749,9 @@
                 </div>
 
 
-
                 <div class="table-container">
 
-
                     <table>
-
 
                         <thead>
 
@@ -1746,14 +1786,15 @@
                         </thead>
 
 
-
                         <tbody>
 
 
                             <tr>
 
                                 <td>
-                                    <strong>Ana Carolina</strong>
+                                    <strong>
+                                        Ana Carolina
+                                    </strong>
                                 </td>
 
                                 <td>
@@ -1774,7 +1815,9 @@
 
                                 <td>
 
-                                    <span class="badge excellent-badge">
+                                    <span
+                                        class="badge excellent-badge"
+                                    >
                                         Excelente
                                     </span>
 
@@ -1787,7 +1830,9 @@
                             <tr>
 
                                 <td>
-                                    <strong>Lucas Mendes</strong>
+                                    <strong>
+                                        Lucas Mendes
+                                    </strong>
                                 </td>
 
                                 <td>
@@ -1808,7 +1853,9 @@
 
                                 <td>
 
-                                    <span class="badge excellent-badge">
+                                    <span
+                                        class="badge excellent-badge"
+                                    >
                                         Excelente
                                     </span>
 
@@ -1821,7 +1868,9 @@
                             <tr>
 
                                 <td>
-                                    <strong>Juliana Costa</strong>
+                                    <strong>
+                                        Juliana Costa
+                                    </strong>
                                 </td>
 
                                 <td>
@@ -1842,7 +1891,9 @@
 
                                 <td>
 
-                                    <span class="badge good-badge">
+                                    <span
+                                        class="badge good-badge"
+                                    >
                                         Bom
                                     </span>
 
@@ -1853,12 +1904,9 @@
 
                         </tbody>
 
-
                     </table>
 
-
                 </div>
-
 
             </div>
 
@@ -1867,9 +1915,9 @@
 
 
 
-        <!-- =================================================
+        <!-- =====================================================
              INADIMPLENTES
-        ================================================== -->
+        ====================================================== -->
 
         <section
             id="inadimplentes"
@@ -1878,7 +1926,6 @@
 
 
             <div class="section-header">
-
 
                 <div>
 
@@ -1891,7 +1938,6 @@
                     </p>
 
                 </div>
-
 
             </div>
 
@@ -1917,7 +1963,6 @@
                 </div>
 
 
-
                 <div class="metric-card">
 
                     <span>
@@ -1935,7 +1980,6 @@
                 </div>
 
 
-
                 <div class="metric-card">
 
                     <span>
@@ -1951,7 +1995,6 @@
                     </small>
 
                 </div>
-
 
 
                 <div class="metric-card">
@@ -1977,7 +2020,6 @@
 
             <div class="panel">
 
-
                 <div class="panel-header">
 
                     <div>
@@ -1995,12 +2037,9 @@
                 </div>
 
 
-
                 <div class="table-container">
 
-
                     <table>
-
 
                         <thead>
 
@@ -2035,14 +2074,15 @@
                         </thead>
 
 
-
                         <tbody>
 
 
                             <tr>
 
                                 <td>
-                                    <strong>Pedro Henrique</strong>
+                                    <strong>
+                                        Pedro Henrique
+                                    </strong>
                                 </td>
 
                                 <td>
@@ -2063,7 +2103,9 @@
 
                                 <td>
 
-                                    <span class="badge critical-badge">
+                                    <span
+                                        class="badge critical-badge"
+                                    >
                                         Crítico
                                     </span>
 
@@ -2076,7 +2118,9 @@
                             <tr>
 
                                 <td>
-                                    <strong>Mariana Souza</strong>
+                                    <strong>
+                                        Mariana Souza
+                                    </strong>
                                 </td>
 
                                 <td>
@@ -2097,7 +2141,9 @@
 
                                 <td>
 
-                                    <span class="badge attention-badge">
+                                    <span
+                                        class="badge attention-badge"
+                                    >
                                         Atenção
                                     </span>
 
@@ -2110,7 +2156,9 @@
                             <tr>
 
                                 <td>
-                                    <strong>Rafael Santos</strong>
+                                    <strong>
+                                        Rafael Santos
+                                    </strong>
                                 </td>
 
                                 <td>
@@ -2131,7 +2179,9 @@
 
                                 <td>
 
-                                    <span class="badge critical-badge">
+                                    <span
+                                        class="badge critical-badge"
+                                    >
                                         Crítico
                                     </span>
 
@@ -2142,12 +2192,9 @@
 
                         </tbody>
 
-
                     </table>
 
-
                 </div>
-
 
             </div>
 
@@ -2159,7 +2206,9 @@
 
 
 
-    <!-- JAVASCRIPT -->
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
 
     <script src="script.js"></script>
 
